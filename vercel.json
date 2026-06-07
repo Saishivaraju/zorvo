@@ -1,16 +1,18 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "screenshots/**", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "server.js" },
-    { "src": "/contact.html", "dest": "server.js" },
-    { "src": "/features.html", "dest": "server.js" },
-    { "src": "/pricing.html", "dest": "server.js" },
-    { "src": "/screenshots.html", "dest": "server.js" },
-    { "src": "/demo.html", "dest": "server.js" },
+    { "src": "/contact.html", "dest": "/contact.html" },
+    { "src": "/features.html", "dest": "/features.html" },
+    { "src": "/pricing.html", "dest": "/pricing.html" },
+    { "src": "/screenshots.html", "dest": "/screenshots.html" },
+    { "src": "/demo.html", "dest": "/demo.html" },
     { "src": "/screenshots/(.*)", "dest": "/screenshots/$1" },
-    { "src": "/", "dest": "server.js" }
+    { "src": "/", "dest": "/index.html" }
   ]
 }
