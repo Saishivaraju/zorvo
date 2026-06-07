@@ -236,7 +236,16 @@ app.delete('/api/bookings/:id', async (req, res) => {
 });
 
 // ── Serve pages ─────────────────────────────────────────────────────────────
+const pages = ['index', 'features', 'pricing', 'screenshots', 'demo', 'contact'];
+pages.forEach(page => {
+  app.get(`/${page}.html`, (req, res) =>
+    res.sendFile(path.join(__dirname, `${page}.html`))
+  );
+});
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+
+// Catch-all — serve index for any unmatched route
+app.use((req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Zorvo AI running at http://localhost:${PORT}`));

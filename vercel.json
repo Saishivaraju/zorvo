@@ -4,6 +4,13 @@
     { "src": "server.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "server.js" }
+    { "src": "/api/(.*)", "dest": "server.js" },
+    { "src": "/contact.html", "dest": "server.js" },
+    { "src": "/features.html", "dest": "server.js" },
+    { "src": "/pricing.html", "dest": "server.js" },
+    { "src": "/screenshots.html", "dest": "server.js" },
+    { "src": "/demo.html", "dest": "server.js" },
+    { "src": "/screenshots/(.*)", "dest": "/screenshots/$1" },
+    { "src": "/", "dest": "server.js" }
   ]
 }
