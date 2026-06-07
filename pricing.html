@@ -1612,7 +1612,7 @@
     if (tab === 'bookings') {
       if (bookings.length === 0) {
         body.innerHTML = `<div style="text-align:center;padding:60px 0;color:#9c9080;">
-          <div style="font-size:2.5rem;margin-bottom:12px">??</div>
+          <div style="font-size:2.5rem;margin-bottom:12px">&#x1F4CB;</div>
           <p>No bookings yet. Submissions from the demo form will appear here.</p>
         </div>`;
         return;
@@ -1632,15 +1632,15 @@
               <tr id="adm-row-${b.id}">
                 <td style="color:#9c9080">${i+1}</td>
                 <td><strong>${esc(b.name)}</strong>${b.brokerage ? `<br><small style="color:#9c9080">${esc(b.brokerage)}</small>` : ''}</td>
-                <td><a href="tel:${esc(b.phone)}" class="adm-phone-link" title="Call ${esc(b.name)}">?? ${esc(b.phone)}</a></td>
+                <td><a href="tel:${esc(b.phone)}" class="adm-phone-link" title="Call ${esc(b.name)}">&#x1F4DE; ${esc(b.phone)}</a></td>
                 <td><a href="mailto:${esc(b.email)}" class="adm-email-link" title="Email ${esc(b.name)}">${esc(b.email)}</a></td>
                 <td style="font-size:.78rem;color:#9c9080">${esc(b.volume||'—')}</td>
                 <td style="font-size:.75rem;color:#9c9080;white-space:nowrap">${esc(b.date)}</td>
                 <td><span class="adm-status-badge adm-status-${b.status.toLowerCase()}">${esc(b.status)}</span></td>
                 <td>
                   <div style="display:flex;gap:6px;flex-wrap:wrap">
-                    <button class="adm-btn adm-btn-green" onclick="markContacted(${b.id})" title="Mark as Contacted">? Mark Contacted</button>
-                    <button class="adm-btn adm-btn-red" onclick="deleteBooking(${b.id})" title="Delete">??</button>
+                    <button class="adm-btn adm-btn-green" onclick="markContacted(${b.id})" title="Mark as Contacted">&#x2713; Mark Contacted</button>
+                    <button class="adm-btn adm-btn-red" onclick="deleteBooking(${b.id})" title="Delete">&#x1F4CB;</button>
                   </div>
                 </td>
               </tr>
@@ -1653,7 +1653,7 @@
     else if (tab === 'contact') {
       if (bookings.length === 0) {
         body.innerHTML = `<div style="text-align:center;padding:60px 0;color:#9c9080;">
-          <div style="font-size:2.5rem;margin-bottom:12px">??</div>
+          <div style="font-size:2.5rem;margin-bottom:12px">&#x1F4CB;</div>
           <p>No contacts yet. Demo bookings will appear here.</p>
         </div>`;
         return;
@@ -1670,9 +1670,9 @@
                 <div style="font-size:.8rem;color:#9c9080;margin-top:2px">${esc(b.volume||'')}${b.volume && b.date ? ' · ' : ''}${esc(b.date)}</div>
               </div>
               <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-                <a href="tel:${esc(b.phone)}" class="adm-contact-btn adm-contact-call">?? ${esc(b.phone)}</a>
-                <a href="mailto:${esc(b.email)}" class="adm-contact-btn adm-contact-email">?? Email</a>
-                <a href="https://wa.me/${b.phone.replace(/\D/g,'')}" target="_blank" class="adm-contact-btn adm-contact-wa">?? WhatsApp</a>
+                <a href="tel:${esc(b.phone)}" class="adm-contact-btn adm-contact-call">&#x1F4DE; ${esc(b.phone)}</a>
+                <a href="mailto:${esc(b.email)}" class="adm-contact-btn adm-contact-email">&#x2709;&#xFE0F; Email</a>
+                <a href="https://wa.me/${b.phone.replace(/\D/g,'')}" target="_blank" class="adm-contact-btn adm-contact-wa">&#x1F4AC; WhatsApp</a>
               </div>
             </div>
           `).join('')}
@@ -1684,7 +1684,7 @@
         <p style="margin-bottom:20px;color:#5c5347;font-size:.88rem">Add internal notes or review stars for each booking to track quality.</p>
         <div style="display:flex;flex-direction:column;gap:16px">
           ${bookings.length === 0
-            ? `<div style="text-align:center;padding:60px 0;color:#9c9080;"><div style="font-size:2.5rem;margin-bottom:12px">?</div><p>No bookings to review yet.</p></div>`
+            ? `<div style="text-align:center;padding:60px 0;color:#9c9080;"><div style="font-size:2.5rem;margin-bottom:12px">&#x2B50;</div><p>No bookings to review yet.</p></div>`
             : bookings.map(b => `
               <div class="adm-review-card" id="adm-rev-${b.id}">
                 <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
@@ -1695,7 +1695,7 @@
                   </div>
                   <div style="margin-left:auto">
                     <div class="adm-stars" data-id="${b.id}">
-                      ${[1,2,3,4,5].map(s => `<span class="adm-star${(b.stars||0)>=s?' adm-star-on':''}" data-star="${s}" onclick="setStars(${b.id},${s})">?</span>`).join('')}
+                      ${[1,2,3,4,5].map(s => `<span class="adm-star${(b.stars||0)>=s?' adm-star-on':''}" data-star="${s}" onclick="setStars(${b.id},${s})">&#x2605;</span>`).join('')}
                     </div>
                   </div>
                 </div>
@@ -1739,7 +1739,7 @@
               onclick="sendTestEmail()"
               style="background:rgba(45,91,227,0.1);border:1px solid rgba(45,91,227,0.25);color:var(--accent);border-radius:8px;padding:10px 20px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;"
             >
-              ?? Send Test Email
+              &#x1F4E7; Send Test Email
             </button>
             <div id="test-email-status" style="font-size:.82rem;min-height:18px;margin-top:8px;"></div>
           </div>
@@ -1846,7 +1846,7 @@
     } catch(e) { /* server may not be running in demo */ }
 
     status.style.color = 'var(--accent2)';
-    status.textContent = email ? `? Notifications will be sent to ${email}` : '? Cleared — using default account email.';
+    status.textContent = email ? `&#x2705; Notifications will be sent to ${email}` : '&#x2705; Cleared — using default account email.';
     setTimeout(() => { status.textContent = ''; }, 4000);
   }
 
@@ -1875,7 +1875,7 @@
       const data = await res.json();
       if (res.ok) {
         status.style.color = '#1a8c6e';
-        status.textContent = '? Email sent to ' + to;
+        status.textContent = '&#x2705; Email sent to ' + to;
         document.getElementById('adm-email-to').value = '';
         document.getElementById('adm-email-name').value = '';
         document.getElementById('adm-email-subject').value = '';
@@ -1911,7 +1911,7 @@
       });
       if (res.ok) {
         status.style.color = 'var(--accent2)';
-        status.textContent = '? Test email sent! Check ' + (ownerEmail || 'your inbox') + '.';
+        status.textContent = '&#x2705; Test email sent! Check ' + (ownerEmail || 'your inbox') + '.';
       } else {
         status.style.color = '#c0392b';
         status.textContent = 'Server returned an error. Is the server running?';
@@ -1968,7 +1968,7 @@
       const data = await res.json();
       if (res.ok) {
         status.style.color = 'var(--accent2)';
-        status.textContent = '? Email sent successfully!';
+        status.textContent = '&#x2705; Email sent successfully!';
         document.getElementById('dash-to').value = '';
         document.getElementById('dash-toname').value = '';
         document.getElementById('dash-subject').value = '';
@@ -2033,7 +2033,7 @@
         body: JSON.stringify({ firstName, lastName, email: emailVal, phone: phoneVal, agentCount: volume, message: challenge })
       });
       if (res.ok) {
-        btn.innerHTML = '? Demo Request Received — We\'ll be in touch within 24 hours!';
+        btn.innerHTML = '&#x2705; Demo Request Received — We\'ll be in touch within 24 hours!';
         btn.style.background = 'var(--accent2)';
         btn.style.color = '#fff';
         statusEl.style.color = 'var(--accent2)';
@@ -2041,14 +2041,14 @@
       } else {
         const data = await res.json();
         // Still success from user perspective — form saved locally
-        btn.innerHTML = '? Demo Request Received — We\'ll be in touch within 24 hours!';
+        btn.innerHTML = '&#x2705; Demo Request Received — We\'ll be in touch within 24 hours!';
         btn.style.background = 'var(--accent2)';
         statusEl.style.color = 'var(--text3)';
         statusEl.textContent = '';
       }
     } catch(err) {
       // API unreachable — still show success to user
-      btn.innerHTML = '? Demo Request Received — We\'ll be in touch within 24 hours!';
+      btn.innerHTML = '&#x2705; Demo Request Received — We\'ll be in touch within 24 hours!';
       btn.style.background = 'var(--accent2)';
     }
 
@@ -2076,7 +2076,7 @@
       background:var(--bg2); border:1px solid var(--border); border-radius:50%;
       width:32px; height:32px; font-size:1rem; cursor:pointer; color:var(--text2);
       display:flex; align-items:center; justify-content:center;
-    ">?</button>
+    ">&#x2715;</button>
     <h3 id="modal-title" style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:16px;"></h3>
     <div id="modal-body" style="font-size:.9rem;color:var(--text2);line-height:1.75;"></div>
   </div>
@@ -2086,7 +2086,7 @@
 <div id="admin-login-overlay">
   <div class="adm-login-box">
     <div style="text-align:center;margin-bottom:24px">
-      <div style="font-size:2rem;margin-bottom:8px">??</div>
+      <div style="font-size:2rem;margin-bottom:8px">&#x1F4CB;</div>
       <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800">Owner Access</h3>
       <p style="font-size:.82rem;color:#9c9080;margin-top:4px">Enter your username and password</p>
     </div>
@@ -2134,16 +2134,16 @@
           <div style="font-size:.73rem;color:#9c9080">Demo Bookings &amp; Lead Monitor</div>
         </div>
       </div>
-      <button onclick="closeAdminDashboard()" class="adm-close-btn">? Close</button>
+      <button onclick="closeAdminDashboard()" class="adm-close-btn">&#x2715; Close</button>
     </div>
 
     <!-- Tabs -->
     <div class="adm-tabs">
-      <button class="adm-tab adm-tab-active" data-tab="bookings" onclick="renderAdminTab('bookings')">?? Bookings</button>
-      <button class="adm-tab" data-tab="contact" onclick="renderAdminTab('contact')">?? Contact List</button>
-      <button class="adm-tab" data-tab="reviews" onclick="renderAdminTab('reviews')">? Reviews &amp; Notes</button>
-      <button class="adm-tab" data-tab="settings" onclick="renderAdminTab('settings')">?? Settings</button>
-      <button class="adm-tab" data-tab="email" onclick="renderAdminTab('email')">?? Send Email</button>
+      <button class="adm-tab adm-tab-active" data-tab="bookings" onclick="renderAdminTab('bookings')">&#x1F4CB; Bookings</button>
+      <button class="adm-tab" data-tab="contact" onclick="renderAdminTab('contact')">&#x1F4DE; Contact List</button>
+      <button class="adm-tab" data-tab="reviews" onclick="renderAdminTab('reviews')">&#x2B50; Reviews &amp; Notes</button>
+      <button class="adm-tab" data-tab="settings" onclick="renderAdminTab('settings')">&#x1F4CB; Settings</button>
+      <button class="adm-tab" data-tab="email" onclick="renderAdminTab('email')">&#x2709;&#xFE0F; Send Email</button>
     </div>
 
     <!-- Body -->
