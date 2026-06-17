@@ -2420,3 +2420,16 @@ footer {
   .adm-contact-card { flex-direction: column; align-items: flex-start; }
   .adm-body { max-height: 60vh; padding: 16px; }
 }
+
+/* -- CUSTOM DEMO VIDEO PLAYER STYLING -- */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(184, 149, 67, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(184, 149, 67, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(184, 149, 67, 0); }
+}
+.pulse-active {
+  animation: pulse-ring 1.8s infinite;
+}
+.video-mockup-player {
+  background: radial-gradient(circle at center, #0f2038 0%, #060a12 100%) !important;
+}
