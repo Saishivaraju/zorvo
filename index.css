@@ -2352,7 +2352,7 @@ footer {
 }
 
 @media(max-width: 600px) {
-  .nav-ctas .btn-ghost { display: none; }
+  .nav-ctas .btn { display: none; }
   nav { height: 64px; }
   .mobile-nav-drawer { top: 64px; }
 
