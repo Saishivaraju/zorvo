@@ -3,10 +3,12 @@
   "builds": [
     { "src": "server.js", "use": "@vercel/node" },
     { "src": "*.html", "use": "@vercel/static" },
+    { "src": "index.css", "use": "@vercel/static" },
     { "src": "screenshots/**", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "server.js" },
+    { "src": "/index.css", "dest": "/index.css" },
     { "src": "/contact.html", "dest": "/contact.html" },
     { "src": "/features.html", "dest": "/features.html" },
     { "src": "/pricing.html", "dest": "/pricing.html" },
